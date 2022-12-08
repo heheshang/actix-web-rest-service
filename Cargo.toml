@@ -1,0 +1,33 @@
+[package]
+name = "actix-web-rest-api-with-jwt-ssk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+
+[dependencies]
+actix-web = "4.2.1"
+actix-rt = "2.7.0"
+actix-service = "2.0.2"
+actix-cors = "0.6.3"
+log = "0.4.14"
+env_logger = "0.9.0"
+diesel_migrations = "2.0.0"
+serde = "1.0.123"
+serde_derive = "1.0.123"
+serde_json = "1.0.62"
+dotenv = "0.15.0"
+failure = "0.1.8"
+derive_more = "0.99.11"
+jsonwebtoken = "8.1.1"
+bcrypt = "0.13.0"
+actix-web-httpauth = "0.8.0"
+futures-util = { version = "0.3.17", default-features = false, features = ["std"] }
+diesel= {version = "2.0.2", features = ["postgres", "r2d2", "chrono",]}
+uuid = {version = "1.2.1", features = ["v4"]}
+chrono = {version = "0.4.19", features = ["serde"]}
+
+
+[dev-dependencies]
+diesel = {version = "2.0.2", features = ["sqlite"]}
