@@ -73,7 +73,7 @@ mod tests {
                         .allowed_header(http::header::CONTENT_TYPE)
                         .max_age(3600),
                 )
-                .app_data(Data::new(pool.clone()))
+                .app_data(Data::new(pool))
                 .wrap(actix_web::middleware::Logger::default())
                 .wrap(crate::middleware::auth_middleware::Authentication)
                 .wrap_fn(|req, srv| {

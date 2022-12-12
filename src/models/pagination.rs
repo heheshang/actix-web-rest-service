@@ -71,6 +71,9 @@ impl<T> SortedAndPaginated<T> {
     }
 }
 
+impl<T: Query> Query for SortedAndPaginated<T> {
+    type SqlType = (T::SqlType, BigInt);
+}
 #[cfg(test)]
 impl<T> SortedAndPaginated<T> {
     pub fn per_page(self, per_page: i64) -> Self {
@@ -100,10 +103,6 @@ impl<T> SortedAndPaginated<T> {
         let records = results.into_iter().map(|x| x.0).collect();
         Ok(Page::new(MESSAGE_OK, records, page, per_page, total))
     }
-}
-
-impl<T: Query> Query for SortedAndPaginated<T> {
-    type SqlType = (T::SqlType, BigInt);
 }
 
 #[cfg(not(test))]
